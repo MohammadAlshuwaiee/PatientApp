@@ -10,7 +10,7 @@ const AddPatient = (props) => {
     <div>
       <button onClick={openModal}>Add</button>
       <PatientModal
-        // createPatient={props.createPatient}
+        createPatient={props.createPatient}
         IsOpen={IsOpen}
         closeModal={closeModal}
         oldPatient={props.patient}

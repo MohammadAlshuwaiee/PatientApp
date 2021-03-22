@@ -1,5 +1,5 @@
 import React from "react";
-import Patients from "../PatientData";
+// import Patients from "../PatientData";
 import { observer } from "mobx-react";
 //styles
 import { PatientWrapper } from "./styles";

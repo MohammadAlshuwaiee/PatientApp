@@ -12,20 +12,24 @@ class PatientStore {
       fetchPatients: action,
     });
   }
-  createPatient = async (newpatient) => {
+  createPatient = async (newPatient) => {
     // patient.id = this.Patients[this.Patients.length - 1].id + 1;
     // patient.slug = slugify(patient.patientName);
     // this.Patients.push(patient);
     try {
-      const res = await axios.post(
-        "http://localhost:8000/patients",
-        newpatient
-      );
-      console.log("PatientStore -> createPatient -> res", newpatient);
+      const res = await axios.post("localhost:8000/hospital/1/patients", {
+        name: "khaled",
+        slug: "llkjd",
+        age: 77,
+        case: "jsjj",
+      });
+      // this.Patients.push(res.data);
     } catch (error) {
-      console.error("PatientStore -> CreatePatient -> error", error);
+      console.error("PatientStore -> CreatePatient -> error", error.message);
     }
   };
+
+  //Delete patient
   deletePatient = async (patientId) => {
     // this.Patients = this.Patients.filter((patient) => patient.id !== patientId);
     try {
@@ -37,6 +41,8 @@ class PatientStore {
       console.error("PatientStore -> DeletePatient -> error", error);
     }
   };
+
+  //Update patient
   UpdatePatient = async (updatedpatient) => {
     // const patient = this.Patients.find(
     //   (patient) => patient.id === updatePatient.id
@@ -56,6 +62,8 @@ class PatientStore {
       console.error("PatientStore -> UpdatePatient -> error", error);
     }
   };
+
+  //fetch Patient
   fetchPatients = async () => {
     try {
       const response = await axios.get("http://localhost:8000/patients");
